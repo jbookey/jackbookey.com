@@ -36,6 +36,8 @@
       max-width: 680px;
       margin: 0 auto;
       padding: 0 24px;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
     }
 
     /* ── Hero ── */
@@ -230,6 +232,16 @@
 
       .legacy {
         justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .legacy-note {
+        white-space: normal;
+        text-align: center;
+      }
+
+      body {
+        font-size: 12px;
       }
 
       .highlights-media {
