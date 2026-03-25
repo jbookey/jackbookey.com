@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <title>Jack Bookey</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      color: #1a1a1a;
+      background: #fafafa;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: #1a1a1a;
+      text-decoration: none;
+      border-bottom: 1px solid #ccc;
+      transition: border-color 0.2s;
+    }
+
+    a:hover {
+      border-color: #1a1a1a;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 120px 0 80px;
+    }
+
+    .hero-content {
+      display: flex;
+      align-items: flex-start;
+      gap: 32px;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 0;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    .hero .links {
+      margin-top: 24px;
+      display: flex;
+      gap: 20px;
+      font-size: 0.95rem;
+    }
+
+    .hero .links a {
+      color: #555;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .hero .links a:hover {
+      color: #1a1a1a;
+      border-color: #1a1a1a;
+    }
+
+    /* ── Section ── */
+    section {
+      padding: 48px 0;
+    }
+
+    section h2 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #999;
+      margin-bottom: 32px;
+    }
+
+    /* ── Highlights ── */
+    .highlights {
+      list-style: none;
+      padding: 0;
+    }
+
+    .highlights li {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.65;
+      padding-left: 16px;
+      position: relative;
+      margin-bottom: 14px;
+    }
+
+    .highlights li::before {
+      content: "\2013";
+      position: absolute;
+      left: 0;
+      color: #ccc;
+    }
+
+    .highlights-media {
+      display: flex;
+      justify-content: center;
+      margin-top: 36px;
+    }
+
+    .media-item {
+      width: 180px;
+    }
+
+    .media-item video {
+      width: 100%;
+    }
+
+    .video-caption {
+      font-size: 0.7rem;
+      color: #999;
+      font-style: italic;
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+
+    /* ── Footer ── */
+    footer {
+      padding: 64px 0 48px;
+      border-top: 1px solid #eee;
+      margin-top: 32px;
+    }
+
+    .legacy {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: nowrap;
+    }
+
+    .legacy-btn {
+      display: inline-block;
+      font-family: 'VT323', monospace;
+      font-size: 17px;
+      color: #000;
+      background: #c0c0c0;
+      border: none;
+      border-top: 1px solid #fff;
+      border-left: 1px solid #fff;
+      border-right: 1px solid #000;
+      border-bottom: 1px solid #000;
+      box-shadow: inset -1px -1px 0 #808080, inset 1px 1px 0 #dfdfdf;
+      padding: 3px 12px;
+      cursor: pointer;
+      white-space: nowrap;
+      line-height: 1.4;
+    }
+
+    .legacy-btn:active {
+      border-top: 1px solid #000;
+      border-left: 1px solid #000;
+      border-right: 1px solid #fff;
+      border-bottom: 1px solid #fff;
+      box-shadow: inset 1px 1px 0 #808080, inset -1px -1px 0 #dfdfdf;
+      padding: 4px 11px 2px 13px;
+    }
+
+    .legacy-note {
+      font-size: 0.8rem;
+      color: #bbb;
+      font-style: italic;
+      white-space: nowrap;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .hero {
+        padding: 80px 0 56px;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero-content {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+      }
+
+      .hero-photo {
+        width: 160px;
+        height: 160px;
+      }
+
+      .hero .links {
+        justify-content: center;
+      }
+
+      .legacy {
+        justify-content: center;
+      }
+
+      .highlights-media {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .media-item {
+        max-width: 240px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Hero -->
+    <header class="hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Jack Bookey</h1>
+          <p>Hey I'm Jack. I'm an engineer who loves digitizing supply chains and the built world. I recently moved to the US/MX border to lead product for a $2.5M pre-seed startup building an AI-native ERP for perishables. Before that, I worked in venture capital backing enterprise tech startups, and held supply chain roles at PepsiCo and Amazon.</p>
+          <div class="links">
+            <a href="mailto:jackbookey@gmail.com">Email</a>
+            <a href="https://linkedin.com/in/jackbookey" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://github.com/jbookey" target="_blank" rel="noopener">GitHub</a>
+          </div>
+          <div class="legacy">
+            <a href="legacy/index.html" class="legacy-btn">Legacy Mode</a>
+            <span class="legacy-note">The original jackbookey.com, live since 2006. Thanks Dad.</span>
+          </div>
+        </div>
+        <img src="jb_winter.jpeg" alt="Jack Bookey" class="hero-photo">
+      </div>
+    </header>
+
+    <!-- Highlights -->
+    <section>
+      <h2>Some things I've done</h2>
+
+      <ul class="highlights">
+        <li>Built an MCP-based AI layer that lets users interact with a full ERP via in-app chat and WhatsApp. Co-developed the eval framework to make sure it actually works.</li>
+        <li>Sourced 50+ founders across infra and AI at Dell Technologies Capital. Originated two term sheets and one closed investment.</li>
+        <li>Built data pipelines at PepsiCo processing tens of millions of records nightly. Created a data mesh bridging legacy and SAP HANA forecasts.</li>
+        <li>Trained a robot arm to organize a desk via imitation learning on HuggingFace's LeRobot platform. Built my own eval suite and data collection loop.</li>
+        <li>Built MySurf, an app that combines buoy data, weather APIs, and personal session ratings to forecast surf quality for you. Because surf conditions aren't one size fits all.</li>
+        <li>B.S. Industrial Engineering from Purdue. Alpha Pi Mu, Kohler Scholar, Dean's List.</li>
+      </ul>
+
+      <div class="highlights-media">
+        <div class="media-item">
+          <video class="project-video" src="robot-training-cropped.mp4" autoplay loop muted playsinline></video>
+          <p class="video-caption">Training action chunking transformer to do the highly economically valuable task of placing a kcup into a tupperware ~60% of the time</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+    </footer>
+
+  </div>
+
+</body>
+</html>
