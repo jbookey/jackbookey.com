@@ -152,9 +152,10 @@
     }
 
     .truck-svg {
-      position: absolute;
+      position: relative;
       top: -34px;
       width: 103px;
+      display: block;
     }
 
     .highlights-media {
@@ -262,11 +263,13 @@
 
       .highlights-media {
         flex-direction: column;
+        align-items: center;
         gap: 20px;
       }
 
       .media-item {
         max-width: 240px;
+        text-align: center;
       }
     }
   </style>
@@ -322,13 +325,13 @@
   <script>
     (function() {
       var truck = document.getElementById('truck');
-      var container = truck.parentElement;
+      var section = truck.closest('section');
       var truckW = 103;
-      var maxPos = container.offsetWidth - truckW;
+      var maxPos = section.offsetWidth - truckW;
       var pos = maxPos;
       var idleTimer;
 
-      truck.style.left = pos + 'px';
+      truck.style.marginLeft = pos + 'px';
 
       var lastScroll = window.pageYOffset;
 
@@ -345,7 +348,7 @@
         if (pos < 0) pos = 0;
         if (pos > maxPos) pos = maxPos;
 
-        truck.style.left = pos + 'px';
+        truck.style.marginLeft = pos + 'px';
         truck.src = 'truck-smoke.svg';
         truck.style.top = '-79px';
 
