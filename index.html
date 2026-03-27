@@ -141,6 +141,21 @@
       top: 15px;
     }
 
+    /* ── Truck ── */
+    .truck-container {
+      position: relative;
+      height: 0;
+      overflow: visible;
+      pointer-events: none;
+    }
+
+    .truck-svg {
+      position: absolute;
+      bottom: -2px;
+      right: 0;
+      width: 60px;
+    }
+
     .highlights-media {
       display: flex;
       justify-content: center;
@@ -281,6 +296,55 @@
 
     <!-- Highlights -->
     <section>
+      <div class="truck-container">
+        <svg class="truck-svg" id="truck" viewBox="0 0 120 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- cab -->
+          <path d="M3,42 L3,24 C3,22 5,14 8,11 C11,8 16,7 20,7 L28,7 C30,7 33,8 34,12 L36,20 L38,22 L38,42" stroke="#ccc" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+          <!-- windshield -->
+          <path d="M10,13 L19,10 L28,10 L32,14 L34,21 L8,21 Z" stroke="#ccc" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
+          <!-- window divider -->
+          <line x1="21" y1="10" x2="20" y2="21" stroke="#ccc" stroke-width="0.8"/>
+          <!-- grill -->
+          <path d="M3,32 L3,40 L12,41 L12,31" stroke="#ccc" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
+          <line x1="5" y1="33" x2="5" y2="40" stroke="#ccc" stroke-width="0.7"/>
+          <line x1="7" y1="32" x2="7" y2="40" stroke="#ccc" stroke-width="0.7"/>
+          <line x1="9" y1="32" x2="9" y2="41" stroke="#ccc" stroke-width="0.7"/>
+          <!-- bumper -->
+          <path d="M1,41 L14,41 L14,43 L1,43 Z" stroke="#ccc" stroke-width="1" fill="none"/>
+          <!-- headlight -->
+          <rect x="2" y="29" width="3" height="2" stroke="#ccc" stroke-width="0.8" fill="none"/>
+          <!-- door -->
+          <path d="M18,23 L18,38 L32,38 L32,23" stroke="#ccc" stroke-width="1" fill="none" stroke-linejoin="round"/>
+          <!-- door handle -->
+          <line x1="29" y1="30" x2="29" y2="33" stroke="#ccc" stroke-width="0.8"/>
+          <!-- step -->
+          <path d="M15,40 L15,44 L22,44" stroke="#ccc" stroke-width="0.8" fill="none"/>
+          <!-- trailer -->
+          <path d="M38,8 L40,5 L112,6 L114,8 L115,42 L38,42 Z" stroke="#ccc" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+          <!-- trailer bottom rail -->
+          <line x1="38" y1="42" x2="115" y2="42" stroke="#ccc" stroke-width="1.5"/>
+          <!-- fuel tank -->
+          <rect x="42" y="34" width="14" height="7" rx="1" stroke="#ccc" stroke-width="1" fill="none"/>
+          <!-- mud flap rear -->
+          <path d="M113,38 L117,43 L113,43" stroke="#ccc" stroke-width="1" fill="none"/>
+          <!-- fender front wheel -->
+          <path d="M16,42 C16,38 22,34 28,34 C34,34 38,38 38,42" stroke="#ccc" stroke-width="1" fill="none"/>
+          <!-- fender rear wheels -->
+          <path d="M78,42 C78,38 84,34 90,34 C96,34 100,38 100,42" stroke="#ccc" stroke-width="1" fill="none"/>
+          <!-- front wheel -->
+          <circle cx="27" cy="46" r="8" stroke="#ccc" stroke-width="1.5" fill="none"/>
+          <circle cx="27" cy="46" r="3" stroke="#ccc" stroke-width="1" fill="none"/>
+          <circle cx="27" cy="46" r="1" stroke="#ccc" stroke-width="0.8" fill="none"/>
+          <!-- rear wheel 1 -->
+          <circle cx="85" cy="46" r="8.5" stroke="#ccc" stroke-width="1.5" fill="none"/>
+          <circle cx="85" cy="46" r="3.5" stroke="#ccc" stroke-width="1" fill="none"/>
+          <circle cx="85" cy="46" r="1.2" stroke="#ccc" stroke-width="0.8" fill="none"/>
+          <!-- rear wheel 2 -->
+          <circle cx="104" cy="46" r="8" stroke="#ccc" stroke-width="1.5" fill="none"/>
+          <circle cx="104" cy="46" r="3" stroke="#ccc" stroke-width="1" fill="none"/>
+          <circle cx="104" cy="46" r="1" stroke="#ccc" stroke-width="0.8" fill="none"/>
+        </svg>
+      </div>
       <ul class="highlights">
         <li>Built an MCP-based AI layer that lets users interact with a full ERP via in-app chat and WhatsApp. Co-developed the eval framework to make sure it actually works.</li>
         <li>Sourced 50+ founders across infra and AI at Dell Technologies Capital. Originated two term sheets and one closed investment.</li>
@@ -300,5 +364,36 @@
 
   </div>
 
+  <script>
+    (function() {
+      const truck = document.getElementById('truck');
+      const container = truck.parentElement;
+      let lastScroll = window.scrollY;
+
+      function updateTruck() {
+        const rect = container.getBoundingClientRect();
+        const viewH = window.innerHeight;
+        const pageH = document.body.scrollHeight - viewH;
+        if (pageH <= 0) return;
+
+        const scrollPct = window.scrollY / pageH;
+        const containerW = container.offsetWidth;
+        const truckW = truck.offsetWidth;
+        const maxTravel = containerW - truckW;
+
+        const pos = maxTravel * (1 - scrollPct);
+
+        const goingRight = window.scrollY < lastScroll;
+        truck.style.transform = goingRight ? 'scaleX(-1)' : 'scaleX(1)';
+        truck.style.left = pos + 'px';
+        truck.style.right = 'auto';
+
+        lastScroll = window.scrollY;
+      }
+
+      window.addEventListener('scroll', updateTruck);
+      updateTruck();
+    })();
+  </script>
 </body>
 </html>
