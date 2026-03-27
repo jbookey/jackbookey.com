@@ -152,10 +152,9 @@
     }
 
     .truck-svg {
-      position: relative;
-      top: -29px;
-      width: 86px;
-      display: block;
+      position: absolute;
+      top: -34px;
+      width: 103px;
     }
 
     .highlights-media {
@@ -323,20 +322,19 @@
   <script>
     (function() {
       var truck = document.getElementById('truck');
-      var section = truck.closest('section');
-      var containerW = section.offsetWidth;
-      var truckW = 86;
-      var maxPos = containerW - truckW;
+      var container = truck.parentElement;
+      var truckW = 103;
+      var maxPos = container.offsetWidth - truckW;
       var pos = maxPos;
       var idleTimer;
 
-      truck.style.marginLeft = pos + 'px';
+      truck.style.left = pos + 'px';
 
       var lastScroll = window.pageYOffset;
 
       function goIdle() {
         truck.src = 'truck.svg';
-        truck.style.top = '-29px';
+        truck.style.top = '-34px';
       }
 
       window.addEventListener('scroll', function() {
@@ -347,9 +345,9 @@
         if (pos < 0) pos = 0;
         if (pos > maxPos) pos = maxPos;
 
-        truck.style.marginLeft = pos + 'px';
+        truck.style.left = pos + 'px';
         truck.src = 'truck-smoke.svg';
-        truck.style.top = '-66px';
+        truck.style.top = '-79px';
 
         if (delta > 0) {
           truck.style.transform = 'scaleX(1)';
