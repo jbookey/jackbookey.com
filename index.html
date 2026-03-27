@@ -38,6 +38,7 @@
       padding: 0 24px;
       overflow-wrap: break-word;
       word-wrap: break-word;
+      overflow: visible;
     }
 
     /* ── Hero ── */
@@ -97,6 +98,7 @@
     /* ── Section ── */
     section {
       padding: 48px 0;
+      overflow: visible;
     }
 
     section h2 {
@@ -151,7 +153,7 @@
 
     .truck-svg {
       position: relative;
-      top: -31px;
+      top: -29px;
       width: 86px;
       display: block;
     }
@@ -334,7 +336,7 @@
 
       function goIdle() {
         truck.src = 'truck.svg';
-        truck.style.top = '-31px';
+        truck.style.top = '-29px';
       }
 
       window.addEventListener('scroll', function() {
@@ -347,7 +349,7 @@
 
         truck.style.marginLeft = pos + 'px';
         truck.src = 'truck-smoke.svg';
-        truck.style.top = '-67px';
+        truck.style.top = '-66px';
 
         if (delta > 0) {
           truck.style.transform = 'scaleX(1)';
