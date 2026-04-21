@@ -285,7 +285,7 @@
       <div class="hero-content">
         <div class="hero-text">
           <h1>Jack Bookey</h1>
-          <p>Hey I'm Jack. I'm an engineer who loves digitizing supply chains and the built world. I recently moved to the US/MX border to lead product for a $2.5M pre-seed startup building an AI-native ERP for perishables. Before that, I worked in venture capital backing enterprise tech startups, and held supply chain roles at PepsiCo and Amazon.</p>
+          <p>Hey I'm Jack. I'm an engineer who loves digitizing supply chains and the built world. I recently moved to the US/MX border to lead product for a $2.5M pre-seed startup <a href="https://harva.ai" target="_blank" rel="noopener" style="color:#0b5940;font-weight:bold;">harva<span style="color:rgb(240,165,0);">.</span></a> building an AI-native ERP for perishables. Before that, I worked in venture capital backing enterprise tech startups, and held supply chain roles at PepsiCo and Amazon.</p>
           <div class="links">
             <a href="mailto:jackbookey@gmail.com">Email</a>
             <a href="https://linkedin.com/in/jackbookey" target="_blank" rel="noopener">LinkedIn</a>
@@ -306,10 +306,10 @@
         <img class="truck-svg" id="truck" src="truck.svg" alt="truck">
       </div>
       <ul class="highlights">
-        <li>Built an MCP-based AI layer that lets users interact with a full ERP via in-app chat and WhatsApp. Co-developed the eval framework to make sure it actually works.</li>
-        <li>Trained a robot arm to organize a desk via imitation learning on HuggingFace's LeRobot platform. Built my own eval suite and data collection loop.</li>
+        <li>Led development of a <a href="https://pydantic.dev/docs/ai/overview/" target="_blank" rel="noopener">Pydantic</a>-based multi-agent system enabling natural language interaction with the ERP through in-app chat and WhatsApp. Built the evals + feedback-to-improvement loop with <a href="https://pydantic.dev/docs/logfire/get-started/" target="_blank" rel="noopener">Logfire</a>.</li>
+        <li>Trained a robot arm to organize a desk via imitation learning on HuggingFace's <a href="https://huggingface.co/docs/lerobot/index" target="_blank" rel="noopener">LeRobot</a> platform. Built my own eval suite and data collection loop.</li>
         <li>Built data pipelines at PepsiCo processing tens of millions of records nightly. Created a data mesh bridging legacy and SAP HANA forecasts.</li>
-        <li>Sourced 50+ founders across infra and AI at Dell Technologies Capital. Originated two term sheets and one closed investment.</li>
+        <li>Sourced 50+ founders across infra and AI at <a href="https://www.delltechnologiescapital.com/" target="_blank" rel="noopener">Dell Technologies Capital</a>. Originated two term sheets and one closed investment.</li>
         <li>Built MySurf, an app that combines buoy data, weather APIs, and personal session ratings to forecast surf quality for you. Because surf conditions aren't one size fits all.</li>
         <li>B.S. Industrial Engineering from Purdue. Alpha Pi Mu, Kohler Scholar, Dean's List.</li>
       </ul>
@@ -345,8 +345,9 @@
       window.addEventListener('scroll', function() {
         var currentScroll = window.pageYOffset;
         var delta = currentScroll - lastScroll;
+        var speed = window.innerWidth <= 600 ? 1 : 3;
 
-        pos = pos - (delta * 3);
+        pos = pos - (delta * speed);
         if (pos < 0) pos = 0;
         if (pos > maxPos) pos = maxPos;
 
