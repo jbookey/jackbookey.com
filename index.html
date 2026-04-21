@@ -14,6 +14,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'SF Mono', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', monospace;
       font-size: 13px;
@@ -307,7 +311,7 @@
       </div>
       <ul class="highlights">
         <li>Led development of a <a href="https://pydantic.dev/docs/ai/overview/" target="_blank" rel="noopener">Pydantic</a>-based multi-agent system enabling natural language interaction with the ERP through in-app chat and WhatsApp. Built the evals + feedback-to-improvement loop with <a href="https://pydantic.dev/docs/logfire/get-started/" target="_blank" rel="noopener">Logfire</a>.</li>
-        <li>Trained a robot arm to organize a desk via imitation learning on HuggingFace's <a href="https://huggingface.co/docs/lerobot/index" target="_blank" rel="noopener">LeRobot</a> platform. Built my own eval suite and data collection loop.</li>
+        <li>Trained a <a href="#robot-video">robot arm</a> to organize a desk via imitation learning on HuggingFace's <a href="https://huggingface.co/docs/lerobot/index" target="_blank" rel="noopener">LeRobot</a> platform. Built my own eval suite and data collection loop.</li>
         <li>Built data pipelines at PepsiCo processing tens of millions of records nightly. Created a data mesh bridging legacy and SAP HANA forecasts.</li>
         <li>Sourced 50+ founders across infra and AI at <a href="https://www.delltechnologiescapital.com/" target="_blank" rel="noopener">Dell Technologies Capital</a>. Originated two term sheets and one closed investment.</li>
         <li>Built MySurf, an app that combines buoy data, weather APIs, and personal session ratings to forecast surf quality for you. Because surf conditions aren't one size fits all.</li>
@@ -315,7 +319,7 @@
       </ul>
 
       <div class="highlights-media">
-        <div class="media-item">
+        <div class="media-item" id="robot-video">
           <video class="project-video" src="robot-training-cropped.mp4" autoplay loop muted playsinline preload="auto" poster="robot-poster.jpg"></video>
           <p class="video-caption">Training action chunking transformer to do the highly economically valuable task of placing a kcup into a tupperware ~60% of the time</p>
         </div>
